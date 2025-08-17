@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>민랩 - MinLab</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      *::-webkit-scrollbar {
+        display: none;
+      }
+      #main {
+        width: 100dvw;
+        height: 90dvh;
+        
+        background-color: rgb(45, 135, 253);
+      }
+      #footer {
+        width: 100dvw;
+        height: 30dvh;
+
+        background-color: rgb(1, 44, 100);
+      }
+      #header {
+          width: 100dvw;
+          height: 10dvh;
+          background-color: rgb(70, 214, 240);
+          display: flex;
+          align-items: center;
+          padding: 0 20px;
+          box-sizing: border-box;
+      }
+
+      /* 로고 */
+      #title {
+          margin-right: 50px;
+          font-size: 24px;
+          color: white;
+      }
+
+      /* 네비게이션 메뉴 */
+      #nav {
+          list-style: none;
+          display: flex;
+          margin: 0;
+          padding: 0;
+      }
+
+      /* 메뉴 항목 */
+      #nav > li {
+          position: relative; /* 서브 메뉴 위치 기준 */
+          margin-right: 30px;
+          padding: 10px;
+          cursor: pointer;
+          color: white;
+          font-weight: bold;
+      }
+
+      /* 서브 메뉴 기본 상태 (숨김 + 위로 살짝 이동) */
+      .sub-menu {
+          position: absolute;
+          top: 100%; 
+          left: 0;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          background-color: rgb(50, 180, 220);
+          border-radius: 4px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          opacity: 0;
+          transform: translateY(-10px); /* 위로 살짝 이동 */
+          transition: opacity 0.3s ease, transform 0.3s ease; /* 애니메이션 */
+          pointer-events: none; /* 안보일 때 클릭 방지 */
+          z-index: 10;
+      }
+
+      /* 호버 시 서브 메뉴 나타나게 */
+      #nav > li:hover .sub-menu {
+          opacity: 1;
+          transform: translateY(0); /* 원위치로 슬라이드 */
+          pointer-events: auto;
+      }
+
+      /* 서브 메뉴 항목 */
+      .sub-menu li {
+          padding: 10px 20px;
+          white-space: nowrap;
+      }
+
+      /* 메뉴 호버 스타일 */
+      #nav > li:hover {
+          background-color: rgb(50, 180, 220);
+          border-radius: 4px;
+      }
+
+      #footer > small {
+        width: 100dvw;
+        height: 10dvh;
+
+        display: block;
+
+        text-align: center;
+        padding-top: 5dvh;
+
+        font-weight: 500;
+        font-size: 20px;
+
+        color: white;
+      }
+
+      #footer > small > a {
+        color: rgb(50, 180, 220);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1 id="title" onclick="window.location.pathname = '/index.html'">MinLab</h1>
+        <ul id="nav">
+          <li id="nav-arduino_pj">
+            아두이노 프로젝트
+            <ul class="sub-menu">
+              <li onclick="window.location.pathname = '/arduinoPJ/recipe.html'">제작법</li>
+              <li onclick="window.location.pathname = '/arduinoPJ/source.html'">소스코드</li>
+            </ul>
+          </li>
+          <li id="nav-dev_story">
+            개발 이야기
+            <ul class="sub-menu">
+              <li onclick="window.location.pathname = '/devStory/story.html'">이야기</li>
+              <li onclick="window.location.pathname = '/devStory/source.html'">소스코드</li>
+              <li onclick="window.location.pathname = '/devStory/output.html'">만든 결과물</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="main">
+      </div>
+      <div id="footer">
+        <small>문의:  <a href="mailto:namolla2125@naver.com">namolla2125@naver.com</a></small>
+      </div>
+    </div>
+  </body>
+</html>
